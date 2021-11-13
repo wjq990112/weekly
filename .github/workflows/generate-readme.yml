@@ -1,0 +1,19 @@
+name: README Generator
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+      - run: npm install
+      - run: npm run build
+      - run: echo 'Generate README successfully'

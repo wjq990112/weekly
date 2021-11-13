@@ -14,6 +14,19 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: npm install
-      - run: npm run build
+      - name: Checkout Branch
+        run: |
+          git config user.name 'wjq99012' --global
+          git config user.email '1163585385@qq.com' --global
+          git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git checkout main
+      - name: Install Dependencies
+        run: npm install
+      - name: Generate README
+        run: npm run build
+      - name: Auto Commit
+        run: |
+          git add .
+          git commit --allow-empty -m 'Auto Update README'
+          git push
       - run: echo 'Generate README successfully'

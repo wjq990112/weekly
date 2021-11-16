@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Weekly from Taobao FEA.",
   "scripts": {
-    "build": "ts-node scripts/generateContents"
+    "build:readme": "ts-node scripts/generateContents",
+    "build:weekly": "ts-node scripts/generateWeekly"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   "homepage": "https://github.com/wjq990112/weekly#readme",
   "devDependencies": {
     "@types/node": "^16.11.7",
+    "axios": "^0.24.0",
     "ts-node": "^10.4.0",
     "typescript": "^4.4.4"
   }

@@ -1,0 +1,6 @@
+name: Weekly Generator
+
+on:
+  issues:
+    types:
+      - opened

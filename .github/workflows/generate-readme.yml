@@ -23,10 +23,11 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Generate README
-        run: npm run build
+        run: npm run build:readme
       - name: Auto Commit
         run: |
           git add .
           git commit --allow-empty -m 'Auto Update README'
           git push
-      - run: echo 'Generate README successfully'
+      - name: Show Success Message
+        run: echo 'Generate README successfully'

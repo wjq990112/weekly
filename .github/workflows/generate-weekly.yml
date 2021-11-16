@@ -1,12 +1,11 @@
-name: README Generator
+name: Weekly Generator
 
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: '0 0 * * 1'
 
 jobs:
-  generate-readme:
+  generate-weekly:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -22,12 +21,12 @@ jobs:
           git checkout main
       - name: Install Dependencies
         run: npm install
-      - name: Update README
-        run: npm run gen:readme
+      - name: Generate Weekly
+        run: npm run gen:weekly
       - name: Auto Commit
         run: |
           git add .
-          git commit --allow-empty -m 'Auto Update README'
+          git commit -m 'Auto Generate Weekly'
           git push
       - name: Show Success Message
-        run: echo 'Generate README successfully'
+        run: echo 'Generate Weekly successfully'

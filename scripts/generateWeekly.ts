@@ -36,7 +36,7 @@ const weekly: Weekly = {
 
 const sinceDate = dayjs().weekday(-6).toDate();
 
-const nowDate = dayjs().weekday(7).format('YYYYMMDD');
+const nowDate = dayjs().weekday(1).format('YYYYMMDD');
 
 axios
   .get<Issue[]>('/repos/wjq990112/weekly/issues', {

@@ -22,8 +22,8 @@ jobs:
           git checkout main
       - name: Install Dependencies
         run: npm install
-      - name: Generate README
-        run: npm run build:readme
+      - name: Update README
+        run: npm run gen:readme
       - name: Auto Commit
         run: |
           git add .

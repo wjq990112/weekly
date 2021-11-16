@@ -1,6 +1,32 @@
 name: Weekly Generator
 
 on:
-  issues:
-    types:
-      - opened
+  schedule:
+    - cron: '0 0 * * 1'
+
+jobs:
+  generate-weekly:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+      - name: Checkout Branch
+        run: |
+          git config user.name 'wjq99012' --global
+          git config user.email '1163585385@qq.com' --global
+          git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git checkout main
+      - name: Install Dependencies
+        run: npm install
+      - name: Generate Weekly
+        run: npm run gen:weekly
+      - name: Auto Commit
+        run: |
+          git add .
+          git commit -m 'Auto Generate Weekly'
+          git push
+      - name: Show Success Message
+        run: echo 'Generate Weekly successfully'

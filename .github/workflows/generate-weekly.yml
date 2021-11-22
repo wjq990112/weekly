@@ -23,6 +23,8 @@ jobs:
         run: npm install
       - name: Generate Weekly
         run: npm run gen:weekly
+      - name: Update README
+        run: npm run gen:readme
       - name: Auto Commit
         run: |
           git add .

@@ -80,6 +80,7 @@ Issue Body：
 
 ## Contents
 
+- [淘系前端架构 - 周刊 - 220801 期](weekly/Weekly%2020220801.md)
 - [淘系前端架构 - 周刊 - 220725 期](weekly/Weekly%2020220725.md)
 - [淘系前端架构 - 周刊 - 220718 期](weekly/Weekly%2020220718.md)
 - [淘系前端架构 - 周刊 - 220711 期](weekly/Weekly%2020220711.md)
